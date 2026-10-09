@@ -1,183 +1,122 @@
-function Home({ setActivePage }) {
-  const techStack = [
-    {
-      name: 'HTML5',
-      icon: 'bi-filetype-html',
-      desc: 'Membangun struktur halaman web'
-    },
-    {
-      name: 'CSS3',
-      icon: 'bi-filetype-css',
-      desc: 'Mengatur tampilan website'
-    },
-    {
-      name: 'JavaScript',
-      icon: 'bi-filetype-js',
-      desc: 'Membuat halaman lebih interaktif'
-    },
-    {
-      name: 'React JS',
-      icon: 'bi-code-square',
-      desc: 'Membangun UI berbasis komponen'
-    },
-    {
-      name: 'Bootstrap',
-      icon: 'bi-bootstrap',
-      desc: 'Membantu membuat desain responsif'
-    },
-    {
-      name: 'GitHub',
-      icon: 'bi-github',
-      desc: 'Menyimpan dan mengelola project'
-    }
-  ]
+import { Link } from 'react-router-dom'
 
+function Home() {
   return (
-    <div className="container my-5 py-3">
-
-      {/* Bagian Pembuka */}
-      <div className="row align-items-center g-4 mb-5 pb-4 border-bottom">
-
-        <div className="col-md-6">
-
+    <section className="container py-5">
+      <div className="row align-items-center g-5">
+        {/* Bagian Perkenalan */}
+        <div className="col-lg-6">
           <span
             className="badge rounded-pill mb-3 px-3 py-2"
             style={{
-              backgroundColor: '#fff1e6',
-              color: '#f28c28'
+              backgroundColor: '#fff0df',
+              color: '#1769aa',
+              fontSize: '14px'
             }}
           >
-            Mahasiswa Teknik Informatika
+            Welcome to My Website
           </span>
 
-          <h1 className="fw-bold mb-3">
-            Halo, Selamat Datang! 👋
+          <h1 className="display-5 fw-bold mb-3">
+            Halo, Saya{' '}
+            <span style={{ color: '#1769aa' }}>
+              Alya Dliya
+            </span>
           </h1>
 
-          <p className="text-muted mb-4">
-            Saya{' '}
-            <strong style={{ color: '#1769aa' }}>
-              Alya Dliya Zahra Andre
-            </strong>
-            , mahasiswa Teknik Informatika di STT Terpadu Nurul Fikri
-            dengan NIM <strong>0110224055</strong>.
+          <h5 className="mb-3" style={{ color: '#f28c28' }}>
+            Mahasiswa Teknik Informatika
+          </h5>
+
+          <p className="text-secondary mb-4" style={{ lineHeight: '1.8' }}>
+            Selamat datang di website portofolio saya.
+            Website ini dibuat menggunakan React JS dan Bootstrap
+            untuk memperkenalkan diri, tim, serta informasi kontak.
           </p>
 
-          <p className="text-muted mb-4">
-            Website ini dibuat sebagai bagian dari praktikum React JS
-            Pertemuan 1 untuk menerapkan konsep component dan Bootstrap
-            dalam pembuatan antarmuka website.
-          </p>
-
-          <div className="d-flex gap-2">
-            <button
-              className="btn text-white"
+          <div className="d-flex flex-wrap gap-3">
+            <Link
+              to="/team"
+              className="btn text-white px-4 py-2"
               style={{ backgroundColor: '#1769aa' }}
-              onClick={() => setActivePage('team')}
             >
+              <i className="bi bi-people me-2"></i>
               Lihat Team
-            </button>
+            </Link>
 
-            <button
-              className="btn"
+            <Link
+              to="/contact"
+              className="btn px-4 py-2"
               style={{
                 border: '2px solid #f28c28',
                 color: '#f28c28'
               }}
-              onClick={() => setActivePage('contact')}
             >
+              <i className="bi bi-chat-dots me-2"></i>
               Contact Saya
-            </button>
+            </Link>
           </div>
 
+          <div className="d-flex gap-4 mt-5">
+            <div>
+              <h4 className="fw-bold mb-0" style={{ color: '#1769aa' }}>
+                React JS
+              </h4>
+              <small className="text-secondary">Frontend</small>
+            </div>
+
+            <div>
+              <h4 className="fw-bold mb-0" style={{ color: '#1769aa' }}>
+                Bootstrap
+              </h4>
+              <small className="text-secondary">Styling</small>
+            </div>
+
+            <div>
+              <h4 className="fw-bold mb-0" style={{ color: '#1769aa' }}>
+                UI/UX
+              </h4>
+              <small className="text-secondary">Design</small>
+            </div>
+          </div>
         </div>
 
-        {/* Gambar Ilustrasi */}
-        <div className="col-md-6 text-center">
-
+        {/* Bagian Ilustrasi */}
+        <div className="col-lg-6">
           <div
-            className="p-2 rounded-4"
+            className="rounded-4 p-5 text-center shadow-sm"
             style={{
-              background: 'linear-gradient(135deg, #1769aa, #f28c28)'
+              background: 'linear-gradient(135deg, #1769aa, #4599d8)',
+              minHeight: '350px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=600&auto=format&fit=crop&q=80"
-              alt="Ilustrasi desain dan teknologi"
-              className="img-fluid rounded-4"
-              style={{
-                height: '430px',
-                width: '100%',
-                objectFit: 'cover'
-              }}
-            />
-          </div>
+            <i
+              className="bi bi-code-slash text-white"
+              style={{ fontSize: '100px' }}
+            ></i>
 
-        </div>
+            <h2 className="text-white fw-bold mt-3">
+              Web Development
+            </h2>
 
-      </div>
+            <p className="text-white mb-0">
+              Learn, Create, and Innovate
+            </p>
 
-      {/* Teknologi */}
-      <div>
-
-        <div className="text-center mb-4">
-
-          <h3
-            className="fw-bold"
-            style={{ color: '#1769aa' }}
-          >
-            Teknologi yang Saya Pelajari
-          </h3>
-
-          <p className="text-muted">
-            Beberapa teknologi yang digunakan dalam proses
-            pembelajaran Pemrograman Web.
-          </p>
-
-        </div>
-
-        <div className="row g-3">
-
-          {techStack.map((tech, index) => (
-            <div
-              className="col-6 col-md-4 col-lg-2"
-              key={index}
-            >
-              <div
-                className="card h-100 text-center p-3 border-0 shadow-sm"
-                style={{
-                  borderTop: '4px solid #1769aa',
-                  borderRadius: '12px'
-                }}
-              >
-
-                <div
-                  className="fs-1 mb-2"
-                  style={{ color: '#f28c28' }}
-                >
-                  <i className={`bi ${tech.icon}`}></i>
-                </div>
-
-                <h6
-                  className="fw-semibold mb-2"
-                  style={{ color: '#1769aa' }}
-                >
-                  {tech.name}
-                </h6>
-
-                <small className="text-muted">
-                  {tech.desc}
-                </small>
-
-              </div>
+            <div className="d-flex gap-2 mt-4 flex-wrap justify-content-center">
+              <span className="badge bg-light text-primary p-2">HTML</span>
+              <span className="badge bg-light text-primary p-2">CSS</span>
+              <span className="badge bg-light text-primary p-2">JavaScript</span>
+              <span className="badge bg-light text-primary p-2">React</span>
             </div>
-          ))}
-
+          </div>
         </div>
-
       </div>
-
-    </div>
+    </section>
   )
 }
 
