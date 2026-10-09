@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Team from './components/Team'
@@ -6,35 +6,22 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 function App() {
-  const [activePage, setActivePage] = useState('home')
-
-  const renderPage = () => {
-    switch (activePage) {
-      case 'team':
-        return <Team />
-
-      case 'contact':
-        return <Contact />
-
-      case 'home':
-      default:
-        return <Home setActivePage={setActivePage} />
-    }
-  }
-
   return (
-    <div className="d-flex flex-column min-vh-100">
-      <Navbar
-        activePage={activePage}
-        setActivePage={setActivePage}
-      />
+    <BrowserRouter>
+      <div className="d-flex flex-column min-vh-100">
+        <Navbar />
 
-      <main className="flex-grow-1">
-        {renderPage()}
-      </main>
+        <main className="flex-grow-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   )
 }
 
